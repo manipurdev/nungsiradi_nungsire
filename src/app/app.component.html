@@ -1,3 +1,47 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar>
+  <a href="#">
+    <img src="assets/heart1.ico" alt="heart">
+  </a>
+  <h2>
+    Nungsiradi Nungsire!
+  </h2>
+  <span style="flex: 1 1 auto;"></span>
+  <div mdTooltip="Add your message!" [mdTooltipPosition]="'before'">
+    <button md-fab (click)="openAddMessageDialog()">
+    +
+    </button>
+  </div>
+</md-toolbar>
+
+<div style="margin-top: 5em">
+  <md-spinner *ngIf="messages.length==0" style="margin: auto; top: 50%"></md-spinner>
+  <md-card *ngFor="let message of messages | async" style="min-width: 10em; float: left; margin: 1em">
+    <md-card-header>
+      <div md-card-avatar style="background-image: url('assets/heart1.ico'); background-size: cover;">
+      </div>
+      <md-card-title>
+        {{message.from}} <small>{{message.location}}</small>
+      </md-card-title>
+      <md-card-subtitle>
+        {{message.to}}
+      </md-card-subtitle>
+    </md-card-header>
+
+    <md-card-content style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; overflow: auto">
+      <h5>
+        {{message.message}}
+      </h5>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="like(message.$key, message.likecount)">
+      <md-icon [color]="red">favorite</md-icon>
+      <small>{{message.likecount}}</small>
+      </button>
+      <span style="flex: 1 1 auto"></span>
+      <span><small style="color: grey">{{message.date | date:'mediumDate'}}</small></span>
+      <button md-button (click)="likeMe(i)" *ngIf="false">
+      <md-icon>share</md-icon>
+      </button>
+    </md-card-actions>
+  </md-card>
+</div>

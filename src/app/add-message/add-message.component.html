@@ -1,0 +1,19 @@
+<md-card>
+  <form [formGroup]="messageForm" (ngSubmit)="submitMessage()">
+    <md-input-container style="min-width: 40ch">
+      <input md-input placeholder="His/Her name, or something to identify him/her" formControlName="to" required>
+    </md-input-container>
+    <br>
+    <md-input-container style="min-width: 40ch">
+      <input md-input placeholder="Identify yourself" formControlName="from" required>
+    </md-input-container>
+    <md-input-container style="width: 100%">
+      <textarea md-input placeholder="Pour out your feelings" formControlName="message" required>
+      </textarea>
+    </md-input-container>
+    <md-input-container style="min-width: 40ch">
+      <input md-input placeholder="Your location" formControlName="location">
+    </md-input-container>
+    <input type="submit" value="Submit" md-raised-button>
+  </form>
+</md-card>
