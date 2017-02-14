@@ -1,8 +1,8 @@
-<md-toolbar>
+<md-toolbar style="position: fixed; top: 0; z-index: 1">
   <a href="#">
     <img src="assets/heart1.ico" alt="heart">
   </a>
-  <h2>
+  <h2 style="font-stretch: condensed">
     Nungsiradi Nungsire!
   </h2>
   <span style="flex: 1 1 auto;"></span>
@@ -13,9 +13,9 @@
   </div>
 </md-toolbar>
 
-<div style="margin-top: 5em">
+<div style="margin-top: 6em;">
   <md-spinner *ngIf="messages.length==0" style="margin: auto; top: 50%"></md-spinner>
-  <md-card *ngFor="let message of messages | async" style="min-width: 10em; float: left; margin: 1em">
+  <md-card *ngFor="let message of messages | async" style="min-width: 10em; max-width: 30em; float: left; margin: 1em">
     <md-card-header>
       <div md-card-avatar style="background-image: url('assets/heart1.ico'); background-size: cover;">
       </div>
